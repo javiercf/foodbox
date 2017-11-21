@@ -1,6 +1,6 @@
 grow_version: ">=0.2.5"
 
-title: "Site Title"
+title: "FoodBox"
 
 home: /content/pages/home.yaml
 
@@ -13,8 +13,7 @@ meta:
   image_path: ""
   favicon_path: /static/images/favicon.png
   social:
-    twitter: example
-    facebook: example
+    facebook: foodboxbogota
 
 preprocessors:
 - kind: gulp

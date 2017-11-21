@@ -1,0 +1,146 @@
+@import '../common/_config';
+@import '../common/_typography';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.picture {
+    background: url('/static/images/Burgers2.jpg') center center no-repeat;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    display: block;
+
+    @media screen and (min-width: 768px) {
+        width: 40%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        // margin-left: 60%;
+    }
+}
+
+.logo {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    background: url('/static/images/bg.png') no-repeat;
+    background-color:  $bg-color;
+    background-size: 100% 100%;
+    max-width: 900px;
+    padding: 5em 3em;
+    
+    @media screen and (min-width: 768px) {
+        margin-left: 40%;
+    }
+
+    @media screen and (min-width: 960px) {
+        padding: 7em 4em 2em;
+    }
+}
+
+.heading {
+    background: url('/static/images/heading-bg.png') no-repeat;
+    color: $heading-color;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    @media screen and (min-width: 480px) {
+        flex-direction: row;
+    }
+
+    & > div + div {
+        margin-left: 10px;
+
+        @media screen and (min-width: 960px) {
+            margin-left: 100px;
+        }
+    }
+
+    & > div {
+        margin-bottom: 1em;
+    }
+
+}
+
+.menu {
+    &--heading {
+        max-width: 300px;
+        margin-bottom: 1em;
+    }
+
+    &--item {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    position: relative;
+
+    &-label,
+    &-price {
+        background: $bg-color;
+        position: relative;
+        z-index: 2;
+    }
+
+    &-label {
+        padding: .25em 1em .25em 0;
+    }
+
+    &-price {
+        padding: 0.25em 0 0.25em 1em; 
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        border-bottom: 1px dotted #fff;
+        position: absolute;
+        bottom: .5em;
+        left: 0;
+    }
+}
+}
+
+.social {
+    background: url('/static/images/footer-bg.png') no-repeat;
+    background-size: cover;
+    padding: 1em;
+    width: 320px;
+    margin: 0 auto 5em;
+
+    p {
+        text-align: center;
+        color:#fff; 
+    }
+
+    a {
+        display: block;
+        color: #fff;
+        vertical-align: middle;
+        text-decoration: none;
+        font-size: 1.5em;  
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+
+    img {
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

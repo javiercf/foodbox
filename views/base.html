@@ -37,40 +37,78 @@
     {% endfor %}
   </head>
   <body>
-    {% include "/partials/header/header.html" %}
+    <div class="picture"></div>
     <div class="wrapper">
-      {% block main %}
-        {% if doc.partials %}
-          {% for field in doc.partials %}
-            {% if not field.partial %}
-              {% continue %}
-            {% endif %}
-
-            {# Render the partial with the values in {{partial}}. #}
-            {% set partial_filename = field.partial|expand_partial %}
-            {% with partial = field %}
-              {% include partial_filename with context %}
-            {% endwith %}
-          {% endfor %}
-        {% else %}
-          {{doc.html|safe}}
-        {% endif %}
-      {% endblock %}
+      <div class="logo">
+          <img src="/static/images/logo.png" alt="FoodBox">
+      </div>
+      <div class="grid grid--first">
+        <div class="grid--first-menu">
+            <div class="menu--heading">
+                <img src="/static/images/burgers.png" alt="Burgers">
+            </div>
+            <ul>
+              <li class="menu--item">
+                <span class="menu--item-label">Sencilla</span>
+                <span class="menu--item-price">$</span>
+              </li>
+              <li class="menu--item">
+                <span class="menu--item-label">Doble</span>
+                <span class="menu--item-price">$</span>
+              </li>
+            </ul>
+        </div>
+        <div class="grid--first-promo">
+          <img src="/static/images/tasty.png" alt="Very Tasty">
+        </div>
+      </div>
+      <div class="grid grid--second">
+        <div class="grid--second-promo">
+          <img src="/static/images/big-burgers.png" alt="Really Big Burgers">
+        </div>
+        <div class="grid--second-menu">
+          <div class="menu--heading">
+              <img src="/static/images/adiciones.png" alt="Adiciones">
+          </div>
+          <ul>
+            <li class="menu--item">
+              <span class="menu--item-label">Queso</span>
+              <span class="menu--item-price">$</span>
+            </li>
+            <!-- <li class="menu--item">
+              <span class="menu--item-label">Tocineta</span>
+              <span class="menu--item-price">$</span>
+            </li> -->
+            <li class="menu--item">
+              <span class="menu--item-label">Papas a la francesa</span>
+              <span class="menu--item-price">$</span>
+            </li>
+          </ul>
+          <div class="menu--heading">
+              <img src="/static/images/bebidas.png" alt="Bebidas">
+          </div>
+          <ul>
+              <li class="menu--item">
+                  <span class="menu--item-label">Té Helado</span>
+                  <span class="menu--item-price">$</span>
+                </li>
+                <li class="menu--item">
+                  <span class="menu--item-label">Gaseosa</span>
+                  <span class="menu--item-price">$</span>
+                </li>
+          </ul>
+        </div>
+      </div>
+      <div class="social">
+        <a href="https://www.instagram.com/foodbox_bgta/" target="_blank">
+          <img src="/static/images/ig.png" alt="Instagram"> @foodbox_bgta
+        </a>
+        <a href="https://www.facebook.com/foodboxbogota/" target="_blank">
+            <img src="/static/images/fb.png" alt="Facebook"> FoodBox Burgers &amp; Fries
+          </a>
+        <p>Pronto: Calle 129 # 53a - 31 Barrio Prado Veraniego</p>
+      </div>
     </div>
-    {% include "/partials/footer/footer.html" %}
-
-    <script src="{{ g.static('/dist/js/composite/global.min.js').url.path }}"></script>
-    {% set compositeJsFiles = [doc.view|replace('.html', '')] %}
-    {% set compositeJsFiles = compositeJsFiles + (doc.composite_files if doc.composite_files else []) %}
-    {% for compositeJsFile in compositeJsFiles %}
-      {% if not compositeJsFile.startswith('/') %}
-        {% set compositeJsFile = '/' ~ compositeJsFile %}
-      {% endif %}
-      {% set viewJsFile = '/dist/js/composite' ~ compositeJsFile ~ '.min.js' %}
-      {% if doc.pod.file_exists(viewJsFile) %}
-        <script src="{{ g.static(viewJsFile).url.path }}"></script>
-      {% endif %}
-    {% endfor %}
 
     {% if podspec.meta.google_analytics_id %}
       <script>

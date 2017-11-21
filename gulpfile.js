@@ -22,10 +22,10 @@ var config = {
       mangle: false
     }
   },
-  SASS_SOURCE_DIR: './source/sass/composite/**/*.sass',
+  SASS_SOURCE_DIR: './source/sass/composite/**/*.scss',
   SASS_SOURCES: [
-    './partials/**/*.sass',
-    './source/sass/composite/**/*.sass',
+    './partials/**/*.scss',
+    './source/sass/composite/**/*.scss',
   ],
   SASS_OUT_DIR: './dist/css/composite/'
 };

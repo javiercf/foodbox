@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Nexa_Free_Bold';
+    src: url('/static/fonts/Nexa_Free_Bold-webfont.woff2') format('woff2'),
+         url('/static/fonts/Nexa_Free_Bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+* {
+    font-family: 'Nexa_Free_Bold', sans-serif;
+}
+
+a {
+    color: $color-text;
+}
+
+p, li, td, th {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
